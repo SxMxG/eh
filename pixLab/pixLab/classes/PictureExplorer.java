@@ -752,8 +752,6 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
     }
   }
   
-  
-  
   /**
    * Class for establishing the focus for the textfields
    */
@@ -800,7 +798,9 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
    */
   public static void main( String args[])
   {
-    Picture pix = new Picture("beach.jpg");
+    Picture pix = new Picture("barbaraS.jpg");
+    Picture smallP = pix.scale(0.25,0.25);
+    smallP.write("barbaraS.jpg");
     pix.explore();
   }
   

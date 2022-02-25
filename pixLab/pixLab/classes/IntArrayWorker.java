@@ -98,5 +98,17 @@ public class IntArrayWorker
       }
     }
   }
+
+  public int getCount(int i) {
+    return 0;
+  }
+
+public int getLargest() {
+    return 0;
+}
+
+public int getColTotal(int i) {
+    return 0;
+}
  
 }

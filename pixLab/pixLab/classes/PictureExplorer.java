@@ -751,7 +751,6 @@ public class PictureExplorer implements MouseMotionListener, ActionListener, Mou
       fiveHundred.setEnabled(false);
     }
   }
-  
   /**
    * Class for establishing the focus for the textfields
    */

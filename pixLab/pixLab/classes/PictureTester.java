@@ -16,12 +16,7 @@ public class PictureTester
     beach.zeroBlue();
     beach.explore();
   }
-  public static void testKeepOnlyBlue(){
-    Picture mark = new Picture("blue-mark.jpg");
-    mark.explore();
-    mark.onlyBlue();
-    mark.explore();
-  }
+
   public static void testNegate(){
     Picture mark = new Picture("blue-mark.jpg");
     mark.negate();
@@ -31,6 +26,14 @@ public class PictureTester
     Picture mark = new Picture("blue-mark.jpg");
     mark.grayscale();
     mark.explore();
+  }
+  /** Method to test keepOnlyBlue */
+  public static void testKeepOnlyBlue()
+  {
+    Picture p = new Picture("arch.jpg");
+    p.explore();
+    p.keepOnlyBlue();
+    p.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -94,6 +97,8 @@ public class PictureTester
     // to run
     //testZeroBlue();
     //testKeepOnlyBlue();
+    testZeroBlue();
+    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
     //testNegate();

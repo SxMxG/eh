@@ -6,10 +6,17 @@
     "configurations": [
         {
             "type": "java",
+<<<<<<< Updated upstream
             "name": "Launch Picture",
             "request": "launch",
             "mainClass": "Picture",
             "projectName": "eh_693337f"
+=======
+            "name": "Launch PictureExplorer",
+            "request": "launch",
+            "mainClass": "PictureExplorer",
+            "projectName": "eh_9bfb255b"
+>>>>>>> Stashed changes
         },
         {
             "type": "java",

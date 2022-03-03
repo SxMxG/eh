@@ -101,6 +101,7 @@ public class Picture extends SimplePicture
       }
     }
   }
+
   public void negate(){
     Pixel[][] pixels = this.getPixels2D();
     for (Pixel[] rowArray : pixels)
@@ -159,22 +160,6 @@ public class Picture extends SimplePicture
       }
     } 
   }
-  public void mirrorVerticalRtoL()
-  {
-    Pixel[][] pixels = this.getPixels2D();
-    Pixel leftPixel = null;
-    Pixel rightPixel = null;
-    int width = pixels[0].length;
-    for (int row = 0; row < pixels.length; row++)
-    {
-      for (int col = 0; col < width / 2; col++)
-      {
-        leftPixel = pixels[row][width - 1 - col];
-        rightPixel = pixels[row][col];
-        rightPixel.setColor(leftPixel.getColor());
-      }
-    } 
-  }
 
   public void mirrorHorizontal()
   {
@@ -193,6 +178,24 @@ public class Picture extends SimplePicture
     } 
   }
   
+  public void mirrorHorizontalBotToTop()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    Pixel botPixel = null;
+    Pixel topPixel = null;
+    int length = pixels[0].length;
+    for (int row = 0; row < pixels.length/2; row++)
+    {
+      for (int col = 0; col < length; col++)
+      {
+        botPixel = pixels[pixels.length-1-row][col];
+        topPixel = pixels[row][col];
+        topPixel.setColor(botPixel.getColor());
+      }
+    } 
+  }
+
+  
 
   public void mirrorVerticalRightToLeft()
   {
@@ -209,6 +212,23 @@ public class Picture extends SimplePicture
         leftPixel.setColor(rightPixel.getColor());
       }
     } 
+  }
+
+  public void switchColor()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        if (pixelObj.getRed() <= 127 || pixelObj.getBlue() <=127)
+        {
+          pixelObj.setGreen(0);
+          pixelObj.setBlue(255);
+          pixelObj.setRed(255);
+        } 
+      }
+    }
   }
   
   /** Mirror just part of a picture of a temple */
@@ -347,13 +367,19 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture p = new Picture("arch.jpg");
+    Picture p = new Picture("butterfly1.jpg");
     //DigitalPicture p = new DigitalPicture("arch.jpg");
     p.explore();
-    p.keepOnlyBlue();
-    p.explore();
+    //p.switchColor();
+    //p.createCollage();
+    //p.grayscale();
+    //p.keepOnlyBlue();
+    p.negate();
     //p.mirrorVertical();
-    p.mirrorVerticalRightToLeft();
+    //p.mirrorVerticalRightToLeft();
+    //p.mirrorHorizontal();
+    //p.mirrorHorizontalBotToTop();
+    //p.edgeDetection(10);
     p.explore();
   }
   

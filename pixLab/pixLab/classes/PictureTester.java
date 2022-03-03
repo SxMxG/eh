@@ -11,10 +11,26 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("blue-mark.jpg");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
+  }
+  public static void testKeepOnlyBlue(){
+    Picture mark = new Picture("blue-mark.jpg");
+    mark.explore();
+    mark.onlyBlue();
+    mark.explore();
+  }
+  public static void testNegate(){
+    Picture mark = new Picture("blue-mark.jpg");
+    mark.negate();
+    mark.explore();
+  }
+  public static void testGrayscale(){
+    Picture mark = new Picture("blue-mark.jpg");
+    mark.grayscale();
+    mark.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -58,12 +74,12 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
-    //testKeepOnlyBlue();
+    //testZeroBlue();
+    testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();
-    //testNegate();
-    //testGrayscale();
+    testNegate();
+    testGrayscale();
     //testFixUnderwater();
     //testMirrorVertical();
     //testMirrorTemple();

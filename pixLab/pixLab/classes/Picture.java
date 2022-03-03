@@ -87,18 +87,40 @@ public class Picture extends SimplePicture
 
   /** Method to set the non blue to blue */
 
-  public void onlyBue()
+  public void onlyBlue()
   {
     Pixel[][] pixels = this.getPixels2D();
     for (Pixel[] rowArray : pixels)
     {
       for (Pixel pixelObj : rowArray)
       {
-        if (!pixelObj.equals(Color.blue))
-        {
-          pixelObj.setBlue(255);
-
-        }
+        pixelObj.setGreen(0);
+        pixelObj.setRed(0);
+        
+      }
+    }
+  }
+  public void negate(){
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen(255-pixelObj.getGreen());
+        pixelObj.setRed(255-pixelObj.getRed());
+        pixelObj.setBlue(255-pixelObj.getBlue());
+      }
+    }
+  }
+  public void grayscale(){
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setGreen((int)pixelObj.getAverage());
+        pixelObj.setRed((int)pixelObj.getAverage());
+        pixelObj.setBlue((int)pixelObj.getAverage());
       }
     }
   }
@@ -278,7 +300,7 @@ public class Picture extends SimplePicture
   {
     Picture p = new Picture("arch.jpg");
     p.explore();
-    p.onlyBue();
+    p.onlyBlue();
     p.explore();
     //p.mirrorHorizontal();
     p.explore();
